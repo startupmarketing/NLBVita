@@ -15,19 +15,19 @@ async function getExchange(currency_exchange_joined){
 	return data;
 }
 
-router.get('/', (req, res, next) => {
+router.get('', (req, res, next) => {
 	res.status(200).json({
 		message: 'Get request handled!'
 	});
 });
 
-router.post('/', (req, res, next) => {
+router.post('', (req, res, next) => {
 	res.status(200).json({
 		message: 'Post request handled!'
 	});
 });
 
-router.get('nlbvita/currency_exchange/:currency_exchange_query', async (req, res, next) => {
+router.get('/currency_exchange/:currency_exchange_query', async (req, res, next) => {
 
 	const currency_exchange_joined = req.params.currency_exchange_query;
 	var exchangeRate = await getExchange(currency_exchange_joined);
