@@ -27,7 +27,7 @@ router.post('/', (req, res, next) => {
 	});
 });
 
-router.get('/:currency_exchange_query', async (req, res, next) => {
+router.get('nlbvita/currency_exchange/:currency_exchange_query', async (req, res, next) => {
 
 	const currency_exchange_joined = req.params.currency_exchange_query;
 	var exchangeRate = await getExchange(currency_exchange_joined);
