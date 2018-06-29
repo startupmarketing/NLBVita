@@ -31,13 +31,12 @@ router.get('/:currency_exchange_query', async (req, res, next) => {
 
 	const currency_exchange_joined = req.params.currency_exchange_query;
 	var exchangeRate = await getExchange(currency_exchange_joined);
-	console.log(exchangeRate);
 	if(Object.keys(exchangeRate).length !== 0){
 		res.status(200).json({
 			"messages": [
 				{"text": "Welcome to the NLB Vita Exchange API"},
 				{"text": "Exchange rate you requested is: "},
-				{"text": exchangeRate.USD_EUR.toString() }
+				{"text": Object.values(exchangeRate).toString() }
 			]	
 		});
 	}else{
