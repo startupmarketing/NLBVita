@@ -58,13 +58,11 @@ router.get('/:currency_exchange_query', async (req, res, next) => {
 router.post('/:currency_exchange_query', async (req, res, next) => {
 	//First we get query for exchange and exchange rate from other api
 	const currency_exchange_joined = req.params.currency_exchange_query;
-	var jsonString = '';
 	var exchangeRate = await getExchange(currency_exchange_joined);
 
 
 	//We extract amount of money that will be changed from post data
 	var post_data = req.body;
-
 	
 	//We check if exchange rate was obtained and respond with data
 	if(Object.keys(exchangeRate).length !== 0){
