@@ -1,6 +1,7 @@
 const express = require('express');
 const axios = require('axios');
 const router = express.Router();
+var qs = require('querystring');
 
 
 //Function for obtaining exchange rate from internet
@@ -60,9 +61,18 @@ router.post('/:currency_exchange_query', async (req, res, next) => {
 	const currency_exchange_joined = req.params.currency_exchange_query;
 	var exchangeRate = await getExchange(currency_exchange_joined);
 
-
+	console.log(req);
+	console.log(typeof req.body);
 	//We extract amount of money that will be changed from post data
-	var post_data = req.body;
+	var jsonString = '';
+
+    req.on('data', function (data) {
+        jsonString += data;
+    });
+
+    req.on('end', function () {
+        console.log(jsonString);
+    });
 	
 	//We check if exchange rate was obtained and respond with data
 	if(Object.keys(exchangeRate).length !== 0){
@@ -70,7 +80,7 @@ router.post('/:currency_exchange_query', async (req, res, next) => {
 			"messages": [
 				{"text": "Welcome to the NLB Vita Exchange API"},
 				{"text": "Info about exchange you requested is: "},
-				{"text": (Object.values(exchangeRate) * post_data.amount).toString() }
+				{"text": (Object.values(exchangeRate)).toString() }
 			]	
 		});
 	}else{
