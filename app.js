@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const currencyExchangeRoutes = require('./api/routes/currency_exchange');
-const webviewsRoutes = require('./api/routes/webviews');
+const webviewsRoutes = require('./webviews/routes/webviews');
 const bodyParser = require('body-parser')
 
 app.use(bodyParser.json()); // for parsing application/json
