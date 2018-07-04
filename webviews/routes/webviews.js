@@ -4,7 +4,7 @@ const router = express.Router();
 
 //Testing req/res
 router.get('', (req, res, next) => {
-	res.sendFile('/home/ubuntu/Documents/nlb/NLBVita/webviews/htmls/currency_exchange_webview.html');
+	res.sendFile('/var/www/messengerbot.si/api/nlbvita/webviews/htmls/currency_exchange_webview.html');
 });
 
 router.post('', (req, res, next) => {
