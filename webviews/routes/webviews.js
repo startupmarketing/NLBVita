@@ -46,7 +46,7 @@ const createButtons = (displayUrl) => {
 
 //Testing req/res
 
-router.get('/currency_exchange/show', (req, res, next) => {
+router.get('/currency_exchange/show/*', (req, res, next) => {
 	res.sendFile('/var/www/messengerbot.si/api/nlbvita/webviews/htmls/currency_exchange/build/currency_exchange.html');
 });
 
