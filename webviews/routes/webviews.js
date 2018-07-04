@@ -45,11 +45,11 @@ const createButtons = (displayUrl) => {
 
 
 //Testing req/res
-router.get('', (req, res, next) => {
-	res.sendFile('/home/ubuntu/Documents/nlb/NLBVita/webviews/htmls/currency_exchange_webview.html');
+router.get('/currency_exchange/show', (req, res, next) => {
+	res.sendFile('/home/ubuntu/Documents/nlb/NLBVita/webviews/htmls/currency_exchange/build/index.html');
 });
 
-router.get('/currency_exchange', (req, res, next) => {
+router.get('/chatfuel', (req, res, next) => {
 	const {userId} = req.query;
 	const displayUrl = 'https://api.messengerbot.si/nlbvita/webviews';
 	res.json(createButtons(displayUrl)); 
