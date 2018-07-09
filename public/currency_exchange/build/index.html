@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name="theme-color" content="#000000"><link rel="manifest" href="/nlbvita/manifest.json"><link rel="shortcut icon" href="/nlbvita/favicon.ico"><title>Pretvornik valut</title><link href="/nlbvita/static/css/main.d41d8cd9.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><script></script><div id="root"></div><br/><button onclick="closeWebview()">Zapri</button><script>var loaded = false
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name="theme-color" content="#000000"><link rel="manifest" href="/nlbvita/manifest.json"><link rel="shortcut icon" href="/nlbvita/favicon.ico"><title>Pretvornik valut</title><link href="/nlbvita/static/css/main.d41d8cd9.css" rel="stylesheet"></head><body><script>!function(e,n,t){var s,r=e.getElementsByTagName(n)[0];e.getElementById(t)||((s=e.createElement(n)).id=t,s.src="//connect.facebook.net/en_US/messenger.Extensions.js",r.parentNode.insertBefore(s,r))}(document,"script","Messenger")</script><noscript>You need to enable JavaScript to run this app.</noscript><script></script><div id="root"></div><br/><button onclick="closeWebview()">Zapri</button><br/><button onclick="checkWebview()">Check</button><script>var loaded = false
       window.extAsyncInit = function() {
         console.log("Messenger extensions are ready!");
         MessengerExtensions.getSupportedFeatures(function success(result) {
@@ -6,7 +6,7 @@
             console.log(features);
             loaded = true;
           }, function error(err) {
-          // error retrieving supported features
+          console.log(err);
         });
       };
 
@@ -20,4 +20,14 @@
         }else{
           alert("Extensions not loaded yet please wait");
         }
-      }</script><script type="text/javascript" src="/nlbvita/static/js/main.253b7733.js"></script></body></html>
+      }
+
+      function checkWebview(){
+        MessengerExtensions.getSupportedFeatures(function success(result) {
+            let features = result.supported_features;
+            alert(features);
+            loaded = true;
+          }, function error(err) {
+          alert(err);
+        });
+      }</script><script type="text/javascript" src="/nlbvita/static/js/main.097dc750.js"></script></body></html>
