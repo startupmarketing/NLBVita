@@ -3,7 +3,7 @@
         console.log("Messenger extensions are ready!");
         MessengerExtensions.getSupportedFeatures(function success(result) {
             let features = result.supported_features;
-            if(features.include("context")){
+            if(features.includes("context")){
               loaded = true;
             }
           }, function error(err) {
