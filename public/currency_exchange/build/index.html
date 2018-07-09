@@ -3,8 +3,9 @@
         console.log("Messenger extensions are ready!");
         MessengerExtensions.getSupportedFeatures(function success(result) {
             let features = result.supported_features;
-            console.log(features);
-            loaded = true;
+            if(features.include("context")){
+              loaded = true;
+            }
           }, function error(err) {
           console.log(err);
         });
@@ -18,7 +19,7 @@
             console.log(err);
           });
         }else{
-          alert("Extensions not loaded yet please wait");
+          alert("Please update your messenger app, for proper use of this webview!");
         }
       }
 
