@@ -1,1 +1,23 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name="theme-color" content="#000000"><link rel="manifest" href="/nlbvita/manifest.json"><link rel="shortcut icon" href="/nlbvita/favicon.ico"><title>Pretvornik valut</title><link href="/nlbvita/static/css/main.d41d8cd9.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><script></script><div id="root"></div><br/><button onclick="closeWebview()">Zapri</button><script>var loaded=!1;function closeWebview(){loaded?MessengerExtensions.requestCloseBrowser(function(){console.log("Window will be closed!")},function(e){console.log(e)}):alert("Extensions not loaded yet please wait")}window.extAsyncInit=function(){console.log("Messenger extensions are ready!"),loaded=!0}</script><script type="text/javascript" src="/nlbvita/static/js/main.253b7733.js"></script></body></html>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name="theme-color" content="#000000"><link rel="manifest" href="/nlbvita/manifest.json"><link rel="shortcut icon" href="/nlbvita/favicon.ico"><title>Pretvornik valut</title><link href="/nlbvita/static/css/main.d41d8cd9.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><script></script><div id="root"></div><br/><button onclick="closeWebview()">Zapri</button><script>var loaded = false
+      window.extAsyncInit = function() {
+        console.log("Messenger extensions are ready!");
+        MessengerExtensions.getSupportedFeatures(function success(result) {
+            let features = result.supported_features;
+            console.log(features);
+            loaded = true;
+          }, function error(err) {
+          // error retrieving supported features
+        });
+      };
+
+      function closeWebview(){
+        if(loaded){
+          MessengerExtensions.requestCloseBrowser(function success() {
+            console.log("Window will be closed!");
+          }, function error(err) {
+            console.log(err);
+          });
+        }else{
+          alert("Extensions not loaded yet please wait");
+        }
+      }</script><script type="text/javascript" src="/nlbvita/static/js/main.253b7733.js"></script></body></html>
